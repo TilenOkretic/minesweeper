@@ -42,23 +42,26 @@ table {
 .mine {
     width: 40px;
     height: 40px;
+
     text-align: center;
+    font-size: 2rem;
+
     background: rgb(139, 139, 139);
     color: rgb(139, 139, 139);
 
-    border-bottom: 4px solid rgb(92, 92, 92);
-    border-right: 4px solid rgb(92, 92, 92);
-    border-top: 4px solid rgb(156, 155, 155);
-    border-left: 4px solid rgb(156, 155, 155);
+    border-bottom: 6px solid rgb(92, 92, 92);
+    border-right: 6px solid rgb(92, 92, 92);
+    border-top: 6px solid rgb(156, 155, 155);
+    border-left: 6px solid rgb(156, 155, 155);
 
     cursor: pointer;
 }
 
 .mine:active {
-    border-top: 4px solid rgb(92, 92, 92);
-    border-left: 4px solid rgb(92, 92, 92);
-    border-bottom: 4px solid rgb(156, 155, 155);
-    border-right: 4px solid rgb(156, 155, 155);
+    border-top: 6px solid rgb(92, 92, 92);
+    border-left: 6px solid rgb(92, 92, 92);
+    border-bottom: 6px solid rgb(156, 155, 155);
+    border-right: 6px solid rgb(156, 155, 155);
     background: #7a7a7a;
     color: #7a7a7a;
 }
