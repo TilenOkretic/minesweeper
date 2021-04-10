@@ -14,7 +14,7 @@ const flag = 'rgb(221, 79, 45)';
 let minefield;
 let total_tiles;
 let mine_count;
-let score = 0;
+let score;
 let countdown;
 let timeSec;
 
@@ -25,6 +25,7 @@ function newGame(rows,cols,mines, time) {
     total_tiles = rows*cols;
     mine_count = mines;
     timeSec = time;
+    score=0;
 
     mineCount.textContent = mine_count;
     timeCount.style.background = '';
