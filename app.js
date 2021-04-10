@@ -212,6 +212,9 @@ function changeGameState(state_text){
 
 function increaseScore() {
     score += 1;
+    if(score % 5 == 0){
+        timeSec += 5;
+    }
 }
 
 function gameOver(elm) {
