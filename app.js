@@ -8,7 +8,7 @@ import {
     bg_dark,
     bg_revealed,
     flag
-} from './_variables.js';
+} from './variables.js';
 
 let minefield;
 let total_tiles;
