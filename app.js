@@ -12,24 +12,38 @@ let minefield;
 let total_tiles;
 let mine_count;
 let score = 0;
+let countdown;
+let timeSec;
 
-function newGame(rows,cols,mines) {
+function newGame(rows,cols,mines, time) {
     head.textContent = 'Ready To Play';
     
-    document.getElementById('newGame').style.display = 'none';
-    document.getElementById('game_rows').style.display = 'none';
-    document.getElementById('game_cols').style.display = 'none';
-    document.getElementById('game_mines').style.display = 'none';
-
     minefield = new Minefield(rows, cols, mines);
     total_tiles = rows*cols;
     mine_count = mines;
+    timeSec = time;
 
     checkGame.addEventListener('click', ()=>{
         check();
     });
 
     createTable(minefield.field);
+
+    timeCount.textContent = timeSec;
+    if(countdown){clearInterval(countdown);}
+    countdown = setInterval( ()=> {
+        timeCount.textContent = timeSec;
+        if(timeSec <= 0){
+            clearInterval(countdown);
+            gameOver();
+        }
+
+        if(timeSec < 10){
+            timeCount.style.background = flag;
+        }
+
+        timeSec--;
+    }, 1000);
 }
 
 
@@ -55,11 +69,7 @@ function createTable(tableData) {
 
                 if (tableData[x][y] != "0") {
                     if (tableData[x][y] == "x") {
-                        revealAll();
-                        elm.target.style.color = text;
-                        elm.target.style.background = flag;
-                        elm.target.style.borderColor = flag;
-                        changeGameState('Game Lost!');
+                        gameOver(elm);
                         return;
                     }
                     elm.target.style.color = text;
@@ -98,14 +108,15 @@ function createTable(tableData) {
     table.appendChild(tableBody);
 }
 
-newGame(10,10,10);
+newGame(10,10,10,10);
 
 document.getElementById('newGame').addEventListener('click', () => {
     let rows = document.getElementById('game_rows').value > 0 ? document.getElementById('game_rows').value : 10;
     let cols = document.getElementById('game_cols').value > 0 ? document.getElementById('game_cols').value : 10;
     let mines = document.getElementById('game_mines').value > 0 ? document.getElementById('game_mines').value: 10;
-    
-    newGame(rows,cols,mines)
+    let time = document.getElementById('game_time').value > 0 ? document.getElementById('game_time').value: 10;
+     
+    newGame(rows,cols,mines, time);
 });
 
 
@@ -176,10 +187,10 @@ function check() {
         });
     });
 
+    gameScore.textContent = score;
     let out = total_tiles - total - mine_count;
     if (out == 0) {
         revealAll();
-        console.log(score);
         changeGameState('Game Won!');
     }
 }
@@ -190,12 +201,20 @@ function changeGameState(state_text){
     Array.from(document.getElementsByClassName('mine')).forEach(elm => {
         elm.onclick = () => {};
     });
-    document.getElementById('newGame').style.display = '';
-    document.getElementById('game_rows').style.display = '';
-    document.getElementById('game_cols').style.display = '';
-    document.getElementById('game_mines').style.display = '';
 }
 
 function increaseScore() {
     score += 1;
 }
+
+function gameOver(elm) {
+    revealAll();
+    if(elm){
+        elm.target.style.color = text;
+        elm.target.style.background = flag;
+        elm.target.style.borderColor = flag;
+    }
+    timeSec = 0;
+    changeGameState('Game Lost!');
+}
+

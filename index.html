@@ -13,10 +13,10 @@
 <body>
 
     <div class="app">
+        <h1 id="head">Ready To Play</h1>
         <div class="headWrapper">
-            <h1 id="head">Ready To Play</h1>
-            <label id="mineCount" style="width: 50%;">100</label>
-            <label id="score" style="width: 50%;">1000</label>
+            <p id="timeCount" style="width: 50%;"></p>
+            <p id="gameScore" style="width: 50%;">0</p>
         </div>
 
 
@@ -25,12 +25,27 @@
             </table>
         </div>
 
-        <button id="newGame" style="display: none;">New Game</button>
-        <button id="checkGame">Check</button>
-        <div class="settings">
-            <input id="game_rows" type="text" value="10" style="width: 20px; display: none;">
-            <input id="game_cols" type="text" value="10" style="width: 20px; display: none">
-            <input id="game_mines" type="text" value="10" style="width: 20px; display: none">
+        <div class="buttons" style="margin-top: 10px; margin-bottom: 5px;">
+            <button id="newGame">New Game</button>
+            <button id="checkGame">Check</button>
+        </div>
+        <div id="settings" style="display: flex; justify-content: center; margin-left: 10%;">
+            <div class="settingsDiv">
+                <p class="settingsP">Rows:</p>
+                <input id="game_rows" type="text" value="10" class="settingsInput">
+            </div>
+            <div class="settingsDiv">
+                <p class="settingsP">Cols:</p>
+                <input id="game_cols" type="text" value="10" class="settingsInput">
+            </div>
+            <div class="settingsDiv">
+                <p class="settingsP">Mines:</p>
+                <input id="game_mines" type="text" value="10" class="settingsInput">
+            </div>
+            <div class="settingsDiv">
+                <p class="settingsP">Time:</p>
+                <input id="game_time" type="text" value="10" class="settingsInput">s
+            </div>
         </div>
     </div>
     <script src='./app.js' type='module'></script>
