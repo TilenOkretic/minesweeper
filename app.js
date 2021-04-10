@@ -110,7 +110,7 @@ function createTable(tableData) {
     table.appendChild(tableBody);
 }
 
-newGame(10,10,10,10);
+newGame(10,10,10,60);
 
 document.getElementById('newGame').addEventListener('click', () => {
     let rows = document.getElementById('game_rows').value > 0 ? document.getElementById('game_rows').value : 10;
