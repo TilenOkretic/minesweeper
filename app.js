@@ -23,6 +23,8 @@ function newGame(rows,cols,mines, time) {
     mine_count = mines;
     timeSec = time;
 
+    mineCount.textContent = mine_count;
+
     checkGame.addEventListener('click', ()=>{
         check();
     });
