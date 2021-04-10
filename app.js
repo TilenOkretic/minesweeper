@@ -214,7 +214,7 @@ function gameOver(elm) {
         elm.target.style.background = flag;
         elm.target.style.borderColor = flag;
     }
-    timeSec = 0;
+    clearInterval(countdown);
     changeGameState('Game Lost!');
 }
 
