@@ -27,6 +27,7 @@ function newGame(rows,cols,mines, time) {
     timeSec = time;
 
     mineCount.textContent = mine_count;
+    timeCount.style.background = '';
 
     checkGame.addEventListener('click', ()=>{
         check();
@@ -46,7 +47,6 @@ function newGame(rows,cols,mines, time) {
         if(timeSec < 10){
             timeCount.style.background = flag;
         }
-
         timeSec--;
     }, 1000);
 }
