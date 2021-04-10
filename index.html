@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <div class="headWrapper">
+            <h1 id="head">Ready To Play</h1>
+            <label id="mineCount" style="width: 50%;">100</label>
+            <label id="score" style="width: 50%;">1000</label>
+        </div>
+
+
+        <div class="table_holder">
+            <table id="main">
+            </table>
+        </div>
+
+        <button id="newGame" style="display: none;">New Game</button>
+        <button id="checkGame">Check</button>
+        <div class="settings">
+            <input id="game_rows" type="text" value="10" style="width: 20px; display: none;">
+            <input id="game_cols" type="text" value="10" style="width: 20px; display: none">
+            <input id="game_mines" type="text" value="10" style="width: 20px; display: none">
+        </div>
+    </div>
+    <script src='./app.js' type='module'></script>
+
+
+</body>
+
+</html>
