@@ -1,3 +1,6 @@
+var clickClip = new Audio("./click.mp3");
+var endClip = new Audio("./end.mp3");
+
 import {
     Minefield
 } from './minefield.js';
@@ -78,8 +81,9 @@ function createTable(tableData) {
                     elm.target.headers = 'revealed';
                     increaseScore();
                     elm.target.style.background = bg;
-                    
+                    clickClip.play();    
                 } else {
+                    clickClip.play();
                     reveal(tableData[x][y], x, y);
                 }
 
@@ -211,6 +215,7 @@ function increaseScore() {
 }
 
 function gameOver(elm) {
+    endClip.play();
     revealAll();
     if(elm){
         elm.target.style.color = text;
