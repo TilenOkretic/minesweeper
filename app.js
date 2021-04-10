@@ -194,6 +194,7 @@ function check() {
     if (out == 0) {
         revealAll();
         changeGameState('Game Won!');
+        clearInterval(countdown);
     }
 }
 
